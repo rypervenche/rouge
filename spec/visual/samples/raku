@@ -1,4 +1,4 @@
-#! /usr/bin/env perl6
+#! /usr/bin/env raku
 
 #### regex_delimiters
 
@@ -59,7 +59,7 @@ say $k;
 
 say '';
 
-##### perl6_misc #####
+##### raku_misc #####
 
 use v6;
 
@@ -73,11 +73,11 @@ for 1 .. 5 {
 grammar Parser {
     rule  TOP  { I <love> <lang> }
     token love { '♥' | love }
-    token lang { < Perl Rust Go Python Ruby > }
+    token lang { < Raku Perl Rust Go Python Ruby > }
 }
 
-say Parser.parse: 'I ♥ Perl';
-say Parser.parse: 'I love Rust';
+say Parser.parse: 'I ♥ Raku';
+say Parser.parse: 'I love Perl';
 
 start { sleep 1.5; print "hi" }
 await Supply.from-list(<A B C D E F>).throttle: 2, {
@@ -99,8 +99,8 @@ say @a».&{ .ord };
 class CarefulClass { method take-care {} }
 my CarefulClass @objs;
 my @results = @objs».take-care();
- 
-my @slops;        # May Contain Nuts 
+
+my @slops;        # May Contain Nuts
 @slops».?this-method-may-not-exist();
 
 sub weird(@elems, :$direction = 'forward') {
@@ -111,14 +111,14 @@ sub weird(@elems, :$direction = 'forward') {
     );
     return gather %direction{$direction}();
 }
- 
-say weird(<a b c>, :direction<backward> );          # OUTPUT: «(c b a)␤» 
+
+say weird(<a b c>, :direction<backward> );          # OUTPUT: «(c b a)␤»
+
+=begin pod
 
 =head1 Single Quote Breaker
 
 That's all folks
-
-=cut
 
 =end pod
 

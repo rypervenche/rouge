@@ -4,18 +4,18 @@ module Rouge
   module Lexers
     load_lexer 'perl.rb'
 
-    class Perl6 < Perl
-      title "Perl 6"
-      desc "The Perl 6 programming language (perl6.org)"
+    class Raku < Perl
+      title "Raku"
+      desc "The Raku programming language (raku.org)"
 
-      tag "perl6"
-      aliases 'pl6'
+      tag "raku"
+      aliases 'perl6'
 
-      filenames '*.pl6', '*.pm6'
-      mimetypes 'text/x-perl6', 'application/x-perl6'
+      filenames '*.raku', '*.rakumod', '*.rakudoc', '*.rakutest', '*.p6', '*.pl6', '*.pm6', '*.pod6'
+      mimetypes 'text/x-raku', 'application/x-raku'
 
       def self.detect?(text)
-        return 1 if text.shebang? 'perl6'
+        return 1 if text.shebang? '(raku|perl6)'
         return 0.4 if text.include? 'use v6'
       end
 
